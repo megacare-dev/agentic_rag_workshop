@@ -344,6 +344,7 @@ agentic_rag_workshop/
 
 **ปริพล ทู้ไพเราะห์ (Paripol Toopiroh)**
 Chief Executive Officer — [Mega Wiz](https://megawiz.co)
+🎓 คณะวิศวกรรมศาสตร์ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง (KMITL)
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/paripol-toopiroh-61273a19b/)
 [![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=flat&logo=facebook&logoColor=white)](https://www.facebook.com/paripol.toopiroh)
