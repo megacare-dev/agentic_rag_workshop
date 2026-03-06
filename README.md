@@ -45,7 +45,11 @@ VectorDB → Retrieve         RAG Agent →               LLM-as-Judge
 agentic_rag_workshop/
 ├── README.md
 ├── LICENSE
+├── CHANGELOG.md                       # 📋 บันทึกการเปลี่ยนแปลง
 ├── final_grading.ipynb                # 🏆 ตรวจ Final (3 ด้าน × 3 วัน)
+├── .agent/
+│   └── workflows/
+│       └── git-workflow.md            # 🔀 Git workflow rule (Issue → PR)
 ├── day1/
 │   ├── day1_data_engineering.ipynb    # 📖 เนื้อหา (87 cells)
 │   ├── day1_homework.ipynb            # 📝 การบ้าน (18 cells)
@@ -325,6 +329,22 @@ agentic_rag_workshop/
 | **รวมต่อ Day**    | **/30** | **/30** | **/30** | **/90** |
 
 > ใช้ `final_grading.ipynb` เพื่อรวมคะแนน 3 ด้านจากทุก Day → export เป็น CSV สุดท้าย
+
+---
+
+## 🐛 Known Issues & Fixes (Colab)
+
+ปัญหาที่พบและแก้ไขแล้ว เมื่อ run บน Google Colab:
+
+|         Issue          | ปัญหา                                          | แก้ไข                               | Notebook |
+| :--------------------: | --------------------------------------------- | ---------------------------------- | -------- |
+| [#19](../../issues/19) | Thai font ใน matplotlib แสดงเป็น □□□           | ใช้ `fonts-thai-tlwg` + `addfont()` | Day 1    |
+| [#21](../../issues/21) | ASCII diagram ไม่ตรงเพราะ Thai char width      | เปลี่ยนเป็น markdown table            | Day 1, 2 |
+| [#26](../../issues/26) | `InMemoryRunner` ไม่รับ `session_service` param | ใช้ `runner.session_service`        | Day 2, 3 |
+| [#17](../../issues/17) | `resp.text.strip()` → NoneType error          | เพิ่ม None check                     | Day 2, 3 |
+| [#30](../../issues/30) | Similarity matrix text ไม่ตรง                  | เปลี่ยนเป็น matplotlib heatmap        | Day 1    |
+
+> ⚠️ **หมายเหตุ**: Notebooks ทั้งหมดถูกออกแบบสำหรับ **Google Colab** — หาก run บนเครื่อง local อาจต้องปรับ path และ dependencies เพิ่มเติม
 
 ## 🛠️ Tech Stack
 
