@@ -7,6 +7,43 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.1.0] - 2026-03-06
+
+### 🎉 All Notebooks Error-Free on Colab
+
+Notebooks ทั้ง 3 วัน + แบบฝึกหัด ผ่านการทดสอบบน Google Colab ไม่มี error
+
+### 🐛 Fixed
+
+**Day 1: Data Engineering**
+- Thai font ใน matplotlib แสดงเป็น □□□ — ใช้ `fonts-thai-tlwg` + `addfont()` (#19, #23, #28)
+- Similarity matrix text ไม่ตรง — เปลี่ยนเป็น matplotlib heatmap (#30, #32)
+
+**Day 2: Building Agents**
+- `InMemoryRunner` ไม่รับ `session_service` param — ใช้ `runner.session_service` (#16)
+- `resp.text.strip()` → NoneType error — เพิ่ม None check (#17)
+- `chat_with_agent` tuple unpacking ValueError — แก้ return value (#16)
+- `%%time` + `await` SyntaxError บน Colab — ลบ `%%time`
+
+**Day 3: Evaluation**
+- `InMemoryRunner` + `session_service` TypeError — ใช้ `runner.session_service` (#26)
+- `resp.text.strip()` NoneType — เพิ่ม None check (#26)
+
+### ✨ Improved
+
+- ASCII diagrams กับ Thai text → เปลี่ยนเป็น markdown table ทุก notebook (#21)
+- Pipeline diagram Day 1 + Day 2 → จัดให้ตรงและสวยงาม
+- Similarity matrix → heatmap visualization 3 ช่อง (#30)
+- เพิ่มข้อมูล KMITL ใน sample data ทุกวัน
+
+### 📝 Documentation
+
+- README: เพิ่ม Known Issues & Fixes section (#33)
+- README: อัพเดทโครงสร้างไฟล์ + Colab note
+- เพิ่ม `.agent/workflows/git-workflow.md` — บังคับ Issue → Branch → PR → Merge
+
+---
+
 ## [1.0.0] - 2026-03-06
 
 ### 🎉 Initial Release
