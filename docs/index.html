@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentic RAG Workshop — From Zero to Hero | MegaWiz</title>
+  <meta name="description" content="Workshop 3 วัน สอนสร้าง RAG + AI Agent ตั้งแต่ศูนย์ ด้วย Google ADK & Gemini — รองรับภาษาไทย โดย MegaWiz">
+  <meta name="keywords" content="RAG, AI Agent, Google ADK, Gemini, Workshop, Thai, MegaWiz">
+  <meta name="author" content="Paripol Toopiroh — MegaWiz">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Agentic RAG Workshop: From Zero to Hero">
+  <meta property="og:description" content="สร้าง RAG + AI Agent ตั้งแต่ศูนย์ ด้วย Google ADK & Gemini — Workshop 3 วัน รองรับภาษาไทย">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Particles Background -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="nav-logo">🤖 Agentic RAG</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#features">จุดเด่น</a></li>
+        <li><a href="#curriculum">เนื้อหา</a></li>
+        <li><a href="#tech-stack">Tech Stack</a></li>
+        <li><a href="#getting-started">เริ่มต้น</a></li>
+        <li><a href="#homework">ส่งการบ้าน</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        University Workshop by MegaWiz
+      </div>
+      <h1>Agentic RAG Workshop</h1>
+      <p class="subtitle">From Zero to Hero</p>
+      <p class="subtitle-thai">สร้าง RAG + AI Agent ตั้งแต่ศูนย์ ด้วย Google ADK &amp; Gemini — รองรับภาษาไทย</p>
+      <div class="hero-buttons">
+        <a href="https://github.com/megacare-dev/agentic_rag_workshop" class="btn btn-primary" target="_blank">
+          ⭐ GitHub Repository
+        </a>
+        <a href="https://docs.google.com/presentation/d/1298peeshWiNPr2JMUTdu1y2A-nuWpGo0N62i25_lvnc/edit" class="btn btn-outline" target="_blank">
+          📊 Slide สำหรับสอน
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-value">3</div>
+          <div class="stat-label">วัน</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">9</div>
+          <div class="stat-label">Notebooks</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">190+</div>
+          <div class="stat-label">Code Cells</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">90</div>
+          <div class="stat-label">คะแนนรวม</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">✨ จุดเด่น</span>
+        <h2 class="section-title">ทำไมต้อง Workshop <span class="gradient">นี้?</span></h2>
+        <p class="section-desc">ออกแบบมาเพื่อนักศึกษาโดยเฉพาะ — เรียนรู้จริง ลงมือทำจริง วัดผลได้จริง</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon cyan">🇹🇭</div>
+          <h3>รองรับภาษาไทย</h3>
+          <p>ใช้ PyThaiNLP ตัดคำ + multilingual-e5-large สำหรับ embedding ภาษาไทยคุณภาพสูง</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon purple">🛡️</div>
+          <h3>Anti-cheat Homework</h3>
+          <p>ข้อมูลเฉพาะตัวจากรหัสนักศึกษา — ทุกคนได้โจทย์คนละชุด ลอกกันไม่ได้</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon green">🤖</div>
+          <h3>ตรวจการบ้านด้วย AI</h3>
+          <p>Gemini 2.5 Pro ตรวจ + ให้ feedback ภาษาไทย แบบอัตโนมัติ สะดวกสำหรับผู้สอน</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon pink">💡</div>
+          <h3>💡 สังเกต Pattern</h3>
+          <p>ทุก section มี「สังเกต」block สรุปจุดสำคัญ ช่วยแยก "มันทำงาน" กับ "มันทำงานดี"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curriculum Section -->
+  <section class="curriculum" id="curriculum">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">📚 เนื้อหา</span>
+        <h2 class="section-title">เรียนรู้ครบ <span class="gradient">3 วัน</span></h2>
+        <p class="section-desc">จากข้อมูลดิบ → AI Agent → วัดคุณภาพ — ครบวงจร Agentic RAG</p>
+      </div>
+      <div class="curriculum-grid">
+        <!-- Day 1 -->
+        <div class="day-card reveal">
+          <div class="day-card-header">
+            <div class="day-number">D1</div>
+            <div>
+              <h3>Data Engineering</h3>
+              <div class="day-subtitle">เปลี่ยน "ขยะ" เป็น "เชื้อเพลิง" สำหรับ LLM</div>
+            </div>
+          </div>
+          <div class="day-card-body">
+            <ul class="topic-list">
+              <li><span class="topic-icon">🔍</span> Deduplication — ตรวจจับไฟล์ซ้ำด้วย Hash</li>
+              <li><span class="topic-icon">✂️</span> Chunking — Fixed / Recursive / Semantic</li>
+              <li><span class="topic-icon">🖼️</span> Gemini Multimodal — แปลง PDF ด้วย AI</li>
+              <li><span class="topic-icon">🇹🇭</span> Thai Tokenization — ตัดคำภาษาไทย</li>
+              <li><span class="topic-icon">📐</span> Embedding — แปลงข้อความเป็น Vector</li>
+              <li><span class="topic-icon">🔎</span> Hybrid Search — Dense + Sparse</li>
+              <li><span class="topic-icon">💾</span> Qdrant — Vector Database + Indexing</li>
+            </ul>
+          </div>
+          <div class="day-card-footer">
+            <div class="day-meta">⏱ ~4-5 ชม. · 87 cells</div>
+            <a href="https://colab.research.google.com/github/megacare-dev/agentic_rag_workshop/blob/main/day1/day1_data_engineering.ipynb" class="day-link" target="_blank">เปิดใน Colab →</a>
+          </div>
+        </div>
+        <!-- Day 2 -->
+        <div class="day-card reveal">
+          <div class="day-card-header">
+            <div class="day-number">D2</div>
+            <div>
+              <h3>Building Agents</h3>
+              <div class="day-subtitle">สร้าง AI Agent ด้วย Google ADK</div>
+            </div>
+          </div>
+          <div class="day-card-body">
+            <ul class="topic-list">
+              <li><span class="topic-icon">🤖</span> Agent แรก — สร้าง Agent + Instruction</li>
+              <li><span class="topic-icon">🔧</span> Tools — Function Tools + Gemini Params</li>
+              <li><span class="topic-icon">📚</span> RAG Agent — Agent ค้นหาจาก VectorDB</li>
+              <li><span class="topic-icon">👥</span> Multi-Agent — Sequential / Parallel / Loop</li>
+              <li><span class="topic-icon">🧠</span> Session Memory — จำบทสนทนา</li>
+              <li><span class="topic-icon">⭐</span> Agentic RAG — Study Assistant เต็มรูปแบบ</li>
+            </ul>
+          </div>
+          <div class="day-card-footer">
+            <div class="day-meta">⏱ ~4-5 ชม. · 62 cells</div>
+            <a href="https://colab.research.google.com/github/megacare-dev/agentic_rag_workshop/blob/main/day2/day2_building_agents.ipynb" class="day-link" target="_blank">เปิดใน Colab →</a>
+          </div>
+        </div>
+        <!-- Day 3 -->
+        <div class="day-card reveal">
+          <div class="day-card-header">
+            <div class="day-number">D3</div>
+            <div>
+              <h3>Evaluation</h3>
+              <div class="day-subtitle">วัดคุณภาพ + ปรับปรุง RAG อย่างเป็นระบบ</div>
+            </div>
+          </div>
+          <div class="day-card-body">
+            <ul class="topic-list">
+              <li><span class="topic-icon">📊</span> RAGAS Metrics — วัดคุณภาพ RAG (4 metrics)</li>
+              <li><span class="topic-icon">🔄</span> Auto Eval Dataset — สร้าง Q&A จาก Gemini</li>
+              <li><span class="topic-icon">🧪</span> Agent Testing — Tool Selection + LLM-as-Judge</li>
+              <li><span class="topic-icon">⚡</span> A/B Experiment — เปรียบเทียบ configs</li>
+              <li><span class="topic-icon">✍️</span> Prompt Engineering — Before vs After</li>
+              <li><span class="topic-icon">🏆</span> Capstone Project — รวมทุกอย่าง 3 วัน</li>
+            </ul>
+          </div>
+          <div class="day-card-footer">
+            <div class="day-meta">⏱ ~3-4 ชม. · 41 cells</div>
+            <a href="https://colab.research.google.com/github/megacare-dev/agentic_rag_workshop/blob/main/day3/day3_evaluation.ipynb" class="day-link" target="_blank">เปิดใน Colab →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack Section -->
+  <section class="tech-stack" id="tech-stack">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">🛠️ Tech Stack</span>
+        <h2 class="section-title">เครื่องมือ<span class="gradient">ที่ใช้</span></h2>
+      </div>
+      <div class="tech-grid reveal">
+        <a href="https://google.github.io/adk-docs/" target="_blank" class="tech-item">
+          <div class="tech-item-icon">🤖</div>
+          <div class="tech-item-name">Google ADK</div>
+          <div class="tech-item-desc">Agent Framework</div>
+        </a>
+        <a href="https://ai.google.dev/" target="_blank" class="tech-item">
+          <div class="tech-item-icon">✨</div>
+          <div class="tech-item-name">Gemini API</div>
+          <div class="tech-item-desc">LLM (2.5 Flash/Pro)</div>
+        </a>
+        <a href="https://qdrant.tech/" target="_blank" class="tech-item">
+          <div class="tech-item-icon">💾</div>
+          <div class="tech-item-name">Qdrant</div>
+          <div class="tech-item-desc">Vector Database</div>
+        </a>
+        <a href="https://huggingface.co/intfloat/multilingual-e5-large" target="_blank" class="tech-item">
+          <div class="tech-item-icon">📐</div>
+          <div class="tech-item-name">E5-multilingual</div>
+          <div class="tech-item-desc">Text Embedding</div>
+        </a>
+        <a href="https://ragas.io/" target="_blank" class="tech-item">
+          <div class="tech-item-icon">📊</div>
+          <div class="tech-item-name">RAGAS</div>
+          <div class="tech-item-desc">RAG Evaluation</div>
+        </a>
+        <a href="https://pythainlp.github.io/" target="_blank" class="tech-item">
+          <div class="tech-item-icon">🇹🇭</div>
+          <div class="tech-item-name">PyThaiNLP</div>
+          <div class="tech-item-desc">Thai NLP</div>
+        </a>
+        <a href="https://colab.research.google.com/" target="_blank" class="tech-item">
+          <div class="tech-item-icon">☁️</div>
+          <div class="tech-item-name">Google Colab</div>
+          <div class="tech-item-desc">Runtime</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Getting Started Section -->
+  <section class="getting-started" id="getting-started">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">🚀 เริ่มต้น</span>
+        <h2 class="section-title">สิ่งที่ <span class="gradient">ต้องเตรียม</span></h2>
+        <p class="section-desc">เพียง 3 ขั้นตอนก็พร้อมเรียน!</p>
+      </div>
+      <div class="getting-started-grid">
+        <div class="step-card reveal">
+          <div class="step-number">1</div>
+          <div>
+            <h3>สร้าง Google Account</h3>
+            <p>ใช้สำหรับเข้า Google Colab — ถ้ามีอยู่แล้วข้ามขั้นตอนนี้ได้เลย</p>
+          </div>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">2</div>
+          <div>
+            <h3>ขอ Gemini API Key</h3>
+            <p>ไปที่ <a href="https://aistudio.google.com/apikey" target="_blank">Google AI Studio</a> แล้วสร้าง API Key ฟรี</p>
+          </div>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">3</div>
+          <div>
+            <h3>ตั้งค่า Colab Secrets</h3>
+            <p>เก็บ API Key ใน Colab Secrets ชื่อ <code>GOOGLE_API_KEY</code> — ปลอดภัยไม่หลุด</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Homework Section -->
+  <section class="homework" id="homework">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">📤 ส่งการบ้าน</span>
+        <h2 class="section-title">ส่งงาน<span class="gradient">แต่ละวัน</span></h2>
+        <p class="section-desc">ทำเสร็จ → Download .ipynb → อัปโหลดผ่าน Google Form</p>
+      </div>
+      <div class="homework-grid">
+        <div class="hw-card reveal">
+          <div class="hw-icon">📦</div>
+          <h3>Day 1: Data Engineering</h3>
+          <p>สร้าง pipeline ตั้งแต่ dedup → chunk → embed → search</p>
+          <a href="https://forms.gle/R7EXvPvUfZ286CVh8" class="btn btn-outline" target="_blank">📤 ส่งการบ้าน Day 1</a>
+        </div>
+        <div class="hw-card reveal">
+          <div class="hw-icon">🤖</div>
+          <h3>Day 2: Building Agents</h3>
+          <p>สร้าง Agent + Custom Tool + RAG Agent + Workflow Agent</p>
+          <a href="https://forms.gle/xTQ5eVNKa4fcQVKb8" class="btn btn-outline" target="_blank">📤 ส่งการบ้าน Day 2</a>
+        </div>
+        <div class="hw-card reveal">
+          <div class="hw-icon">📊</div>
+          <h3>Day 3: Evaluation</h3>
+          <p>สร้าง RAG + วัดคุณภาพ + ปรับปรุง + สร้าง Agent + Test</p>
+          <a href="https://forms.gle/yLVHh4YVVt3miogm8" class="btn btn-outline" target="_blank">📤 ส่งการบ้าน Day 3</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instructor Section -->
+  <section class="instructor" id="instructor">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">👤 ผู้จัดทำ</span>
+        <h2 class="section-title">สอนโดย</h2>
+      </div>
+      <div class="instructor-card reveal">
+        <div class="instructor-avatar">PT</div>
+        <div class="instructor-info">
+          <h3>ปริพล ทู้ไพเราะห์</h3>
+          <div class="instructor-role">Chief Executive Officer</div>
+          <div class="instructor-company">🏢 <a href="https://megawiz.co" target="_blank">Mega Wiz</a></div>
+          <div class="instructor-edu">🎓 วิศวกรรมสารสนเทศ รุ่น 1 — KMITL</div>
+          <div class="instructor-links">
+            <a href="https://www.linkedin.com/in/paripol-toopiroh-61273a19b/" target="_blank" aria-label="LinkedIn" title="LinkedIn">in</a>
+            <a href="https://www.facebook.com/paripol.toopiroh" target="_blank" aria-label="Facebook" title="Facebook">f</a>
+            <a href="https://github.com/megacare-dev/agentic_rag_workshop" target="_blank" aria-label="GitHub" title="GitHub">⌨</a>
+          </div>
+          <div class="powered-by">
+            <div class="powered-by-label">Powered by</div>
+            <a href="https://megawiz.co" target="_blank" class="powered-by-logo">🚀 MegaWiz</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">🤖 Agentic RAG Workshop</div>
+      <div class="footer-tagline">"The best way to learn AI is to build with AI."</div>
+      <div class="footer-links">
+        <a href="https://github.com/megacare-dev/agentic_rag_workshop" target="_blank">GitHub</a>
+        <a href="https://github.com/megacare-dev/agentic_rag_workshop/issues" target="_blank">Report Issues</a>
+        <a href="https://megawiz.co" target="_blank">MegaWiz</a>
+        <a href="https://docs.google.com/presentation/d/1298peeshWiNPr2JMUTdu1y2A-nuWpGo0N62i25_lvnc/edit" target="_blank">Slides</a>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <span class="footer-copyright">© 2025 Paripol Toopiroh — MegaWiz</span>
+        <span class="footer-license">
+          <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // ===== Particle Canvas =====
+    (function () {
+      const canvas = document.getElementById('particles-canvas');
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      const PARTICLE_COUNT = 60;
+      const MAX_DIST = 120;
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      class Particle {
+        constructor() { this.reset(); }
+        reset() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.vx = (Math.random() - 0.5) * 0.4;
+          this.vy = (Math.random() - 0.5) * 0.4;
+          this.r = Math.random() * 2 + 0.5;
+          this.alpha = Math.random() * 0.5 + 0.1;
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+          if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(6, 182, 212, ${this.alpha})`;
+          ctx.fill();
+        }
+      }
+
+      for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle());
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => { p.update(); p.draw(); });
+        // Draw connections
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < MAX_DIST) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(6, 182, 212, ${0.08 * (1 - dist / MAX_DIST)})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+      animate();
+    })();
+
+    // ===== Scroll Reveal =====
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    // ===== Mobile Nav Toggle =====
+    document.getElementById('nav-toggle').addEventListener('click', () => {
+      document.getElementById('nav-links').classList.toggle('active');
+    });
+
+    // ===== Navbar scroll effect =====
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.style.background = 'rgba(10, 14, 26, 0.95)';
+      } else {
+        navbar.style.background = 'rgba(10, 14, 26, 0.8)';
+      }
+    });
+  </script>
+
+</body>
+</html>
