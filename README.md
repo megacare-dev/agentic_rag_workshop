@@ -1,392 +1,384 @@
 # 🤖 Agentic RAG Workshop: From Zero to Hero
 
-> สร้าง RAG + AI Agent ตั้งแต่ศูนย์ ด้วย Google ADK & Gemini — รองรับภาษาไทย
+> Build RAG + AI Agents from scratch with Google ADK & Gemini — with full Thai-language support.
 
 ---
 
-## 📋 สารบัญ
+## 📋 Table of Contents
 
-- [ภาพรวม](#-ภาพรวม)
-- [โครงสร้างไฟล์](#-โครงสร้างไฟล์)
-- [เนื้อหาแต่ละวัน](#-เนื้อหาแต่ละวัน)
-- [สิ่งที่ต้องเตรียม](#-สิ่งที่ต้องเตรียม)
-- [วิธีสอน](#-วิธีสอน)
-- [วิธีส่งการบ้าน](#-วิธีส่งการบ้าน)
-- [วิธีตรวจการบ้าน](#-วิธีตรวจการบ้าน)
+- [Overview](#-overview)
+- [Project Structure](#-project-structure)
+- [Daily Curriculum](#-daily-curriculum)
+- [Prerequisites](#-prerequisites)
+- [Teaching Method](#-teaching-method)
+- [Homework Submission](#-homework-submission)
+- [Homework Grading](#-homework-grading)
 - [Tech Stack](#-tech-stack)
 
 ---
 
-## 🎯 ภาพรวม
+## 🎯 Overview
 
-Workshop 3 วัน สำหรับนักศึกษาระดับปริญญาตรี สอนสร้าง **Retrieval-Augmented Generation (RAG)** และ **AI Agent** แบบ end-to-end
+This is a 3-day workshop for undergraduate students to learn how to build **Retrieval-Augmented Generation (RAG)** systems and **AI Agents** end-to-end.
 
 ```
 Day 1: Data Engineering     Day 2: Agent Building     Day 3: Evaluation
 ─────────────────────       ─────────────────────     ─────────────────
 Raw → Chunk → Embed →       Agent + Tool →            RAGAS metrics
 VectorDB → Retrieve         RAG Agent →               LLM-as-Judge
-                            Multi-Agent →              A/B Experiment
-                            Agentic RAG                Capstone ⭐
+                            Multi-Agent →             A/B Experiment
+                            Agentic RAG               Capstone ⭐
 ```
 
-**จุดเด่น:**
-- 🇹🇭 รองรับภาษาไทยตลอดทาง (PyThaiNLP, multilingual-e5-large)
-- 🛡️ Anti-cheat homework (ข้อมูลเฉพาะตัวจากรหัส นศ.)
-- 🤖 ตรวจการบ้านอัตโนมัติด้วย Gemini 2.5 Pro
-- 💡 มี「สังเกต」blocks ทุก section ช่วยสรุปแนวคิดสำคัญ
-- 🧪 แบบฝึกหัดพร้อม Hints + starter code
+**Highlights:**
+- 🇹🇭 Full Thai-language support throughout the pipeline (PyThaiNLP, multilingual-e5-large)
+- 🛡️ Anti-cheat homework design (personalized data generated from student IDs)
+- 🤖 Automatic grading powered by Gemini 2.5 Pro
+- 💡 "Observation" blocks in every section to summarize key ideas
+- 🧪 Practice exercises with hints + starter code
 
 ---
 
-## 📁 โครงสร้างไฟล์
+## 📁 Project Structure
 
 ```
 agentic_rag_workshop/
 ├── README.md
 ├── LICENSE
-├── CHANGELOG.md                       # 📋 บันทึกการเปลี่ยนแปลง
-├── final_grading.ipynb                # 🏆 ตรวจ Final (3 ด้าน × 3 วัน)
+├── CHANGELOG.md                       # 📋 Change history
+├── final_grading.ipynb                # 🏆 Final grading (3 dimensions × 3 days)
 ├── .agent/
 │   └── workflows/
 │       └── git-workflow.md            # 🔀 Git workflow rule (Issue → PR)
 ├── day1/
-│   ├── day1_data_engineering.ipynb    # 📖 เนื้อหา (87 cells)
-│   ├── day1_homework.ipynb            # 📝 การบ้าน (18 cells)
-│   └── day1_grading.ipynb             # ✅ ตรวจการบ้าน (11 cells)
+│   ├── day1_data_engineering.ipynb    # 📖 Lesson content (87 cells)
+│   ├── day1_homework.ipynb            # 📝 Homework (18 cells)
+│   └── day1_grading.ipynb             # ✅ Grading notebook (11 cells)
 ├── day2/
-│   ├── day2_building_agents.ipynb     # 📖 เนื้อหา (62 cells)
-│   ├── day2_homework.ipynb            # 📝 การบ้าน (22 cells)
-│   └── day2_grading.ipynb             # ✅ ตรวจการบ้าน (11 cells)
+│   ├── day2_building_agents.ipynb     # 📖 Lesson content (62 cells)
+│   ├── day2_homework.ipynb            # 📝 Homework (22 cells)
+│   └── day2_grading.ipynb             # ✅ Grading notebook (11 cells)
 └── day3/
-    ├── day3_evaluation.ipynb          # 📖 เนื้อหา (41 cells)
-    ├── day3_homework.ipynb            # 📝 การบ้าน (18 cells)
-    └── day3_grading.ipynb             # ✅ ตรวจการบ้าน (11 cells)
+    ├── day3_evaluation.ipynb          # 📖 Lesson content (41 cells)
+    ├── day3_homework.ipynb            # 📝 Homework (18 cells)
+    └── day3_grading.ipynb             # ✅ Grading notebook (11 cells)
 ```
 
 ---
 
-## 📚 เนื้อหาแต่ละวัน
+## 📚 Daily Curriculum
 
 ### Day 1: Data Engineering Pipeline
 
-| Section | เนื้อหา                                              |
-| ------- | -------------------------------------------------- |
-| 1.1     | Deduplication — ตรวจจับไฟล์ซ้ำด้วย Hash                 |
-| 1.2     | Chunking — ตัดข้อความ (Fixed / Recursive / Semantic) |
-| 1.3     | Gemini Multimodal — แปลง PDF ด้วย AI                |
-| 1.4     | Thai Tokenization — ตัดคำภาษาไทย                     |
-| 1.5     | Embedding — แปลงข้อความเป็น Vector                   |
-| 1.6     | Hybrid Search — Dense + Sparse search              |
-| 1.7     | Qdrant — Vector Database                           |
-| 1.8     | Indexing — นำข้อมูลเข้า VectorDB                       |
-| 1.9     | Retrieval — ค้นหาข้อมูล                               |
+| Section | Content |
+| ------- | ------- |
+| 1.1     | Deduplication — detect duplicate files with hashing |
+| 1.2     | Chunking — split text (Fixed / Recursive / Semantic) |
+| 1.3     | Gemini Multimodal — convert PDFs with AI |
+| 1.4     | Thai Tokenization — Thai word segmentation |
+| 1.5     | Embedding — convert text into vectors |
+| 1.6     | Hybrid Search — Dense + Sparse search |
+| 1.7     | Qdrant — Vector Database |
+| 1.8     | Indexing — insert data into VectorDB |
+| 1.9     | Retrieval — search and fetch relevant context |
 
-**การบ้าน (10 คะแนน):** สร้าง pipeline ตั้งแต่ dedup → chunk → embed → search
+**Homework (10 points):** Build a full pipeline from dedup → chunk → embed → search.
 
 ---
 
 ### Day 2: Building Agents with Google ADK
 
-| Section | เนื้อหา                                                    |
-| ------- | -------------------------------------------------------- |
-| 2.1     | Agent แรก — สร้าง Agent + Instruction                     |
-| 2.2     | Tools — Function Tools + Gemini API params               |
-| 2.3     | RAG Agent — Agent ค้นหาจาก VectorDB                       |
+| Section | Content |
+| ------- | ------- |
+| 2.1     | First Agent — create an Agent + Instruction |
+| 2.2     | Tools — Function Tools + Gemini API parameters |
+| 2.3     | RAG Agent — agent that retrieves from VectorDB |
 | 2.4     | Multi-Agent — Sequential / Parallel / Loop / LLM Routing |
-| 2.5     | Session Memory — จำบทสนทนา                                |
-| 2.6     | Agentic RAG — Study Assistant เต็มรูปแบบ                   |
+| 2.5     | Session Memory — maintain conversation memory |
+| 2.6     | Agentic RAG — complete Study Assistant system |
 
-**การบ้าน (10 คะแนน):** สร้าง Agent + Custom Tool + RAG Agent + Workflow Agent
+**Homework (10 points):** Build an Agent + Custom Tool + RAG Agent + Workflow Agent.
 
 ---
 
 ### Day 3: Evaluation & Optimization
 
-| Section | เนื้อหา                                         |
-| ------- | --------------------------------------------- |
-| 3.1     | RAGAS — วัดคุณภาพ RAG (4 metrics)               |
-| 3.2     | Auto Eval Dataset — สร้าง Q&A อัตโนมัติจาก Gemini |
-| 3.3     | Agent Testing — Tool Selection + LLM-as-Judge |
-| 3.4     | A/B Experiment — เปรียบเทียบ configs            |
-| 3.5     | Prompt Engineering — Before vs After          |
-| 3.6     | Capstone Project ⭐ — รวมทุกอย่าง 3 วัน           |
+| Section | Content |
+| ------- | ------- |
+| 3.1     | RAGAS — evaluate RAG quality (4 metrics) |
+| 3.2     | Auto Eval Dataset — generate Q&A automatically with Gemini |
+| 3.3     | Agent Testing — test quality and reliability |
+| 3.4     | Prompt / Retrieval Optimization |
+| 3.5     | A/B Experiment — compare before vs after |
+| 3.6     | Capstone Project |
 
-**การบ้าน (10 คะแนน):** สร้าง RAG + วัดคุณภาพ + ปรับปรุง + สร้าง Agent + Test
-
----
-
-## 🔧 สิ่งที่ต้องเตรียม
-
-### สำหรับผู้สอน
-1. **Gemini API Key** — ขอที่ [Google AI Studio](https://aistudio.google.com/apikey)
-2. อัปโหลด notebooks ขึ้น Google Colab
-3. แชร์ข้อมูลตัวอย่าง (PDF) ให้นักศึกษา (Day 1)
-4. **สร้าง Google Form** สำหรับรับส่งการบ้าน (ดู [วิธีส่งการบ้าน](#-วิธีส่งการบ้าน))
-5. 📊 **[Slide สำหรับสอน](https://docs.google.com/presentation/d/1298peeshWiNPr2JMUTdu1y2A-nuWpGo0N62i25_lvnc/edit)** — Google Slides พร้อมใช้
-
-### สำหรับนักศึกษา
-1. **Google Account** (สำหรับ Colab)
-2. **Gemini API Key** — เก็บใน Colab Secrets ชื่อ `GOOGLE_API_KEY`
+**Homework (10 points):** Build + evaluate + improve a complete RAG system, then summarize findings.
 
 ---
 
-## 🎓 วิธีสอน
+## 🧰 Prerequisites
 
-### แนวทางการสอนแต่ละ Section
+1. **Google Account** (for Colab)
+2. **Gemini API Key** stored in Colab Secrets as `GOOGLE_API_KEY`
+
+---
+
+## 🎓 Teaching Method
+
+### Standard flow for each section
 
 ```
-1. อธิบายคอนเซ็ปต์ (Markdown cell)
-2. สาธิตโค้ด (Code cell — Run ด้วยกัน)
-3. 💡 สังเกต — สรุปจุดสำคัญ
-4. 🧪 แบบฝึกหัด — ให้ลองทำ 5-10 นาที
+1. Explain the concept (Markdown cell)
+2. Demonstrate the code (Code cell — run together)
+3. 💡 Observation — summarize key takeaways
+4. 🧪 Exercise — students practice for 5–10 minutes
 ```
 
-### เวลาโดยประมาณ
+### Estimated time
 
-| Day   | เวลารวม  | แบ่งเป็น                         |
-| ----- | :------: | ------------------------------ |
-| Day 1 | ~4-5 ชม. | เนื้อหา 3 ชม. + แบบฝึกหัด 1-2 ชม.  |
-| Day 2 | ~4-5 ชม. | เนื้อหา 3 ชม. + แบบฝึกหัด 1-2 ชม.  |
-| Day 3 | ~3-4 ชม. | เนื้อหา 2 ชม. + Capstone 1-2 ชม. |
+| Day   | Total Time | Breakdown |
+| ----- | :--------: | --------- |
+| Day 1 | ~4–5 hrs   | 3 hrs lesson + 1–2 hrs exercises |
+| Day 2 | ~4–5 hrs   | 3 hrs lesson + 1–2 hrs exercises |
+| Day 3 | ~3–4 hrs   | 2 hrs lesson + 1–2 hrs capstone |
 
 ### Tips
 
-- Run `%%time` cells ล่วงหน้า เพราะ pip install + model download ใช้เวลา
-- ให้นักศึกษา set Colab Secrets ก่อนเริ่ม
-- Section ที่ใช้ `await` ต้อง run ใน Colab (ไม่ใช่ local Python)
-- เน้น **💡 สังเกต** blocks — คือ takeaway สำคัญของแต่ละ section
+- Run `%%time` cells in advance because pip installs + model downloads take time.
+- Ask students to set Colab Secrets before class starts.
+- Sections that use `await` must run in Colab (not plain local Python).
+- Emphasize **💡 Observation** blocks—they contain each section’s key takeaway.
 
 ---
 
-## 📤 วิธีส่งการบ้าน
+## 📤 Homework Submission
 
-### Flow
+### Submission flow
 
 ```
-นักศึกษา                              ผู้สอน
-──────────                            ──────────
-1. ทำการบ้านใน Colab                   1. สร้าง Google Form (1 ครั้ง)
-2. Run ✅ ตรวจสอบคำตอบ                 2. เปิด Google Sheets (auto)
-3. File → Download → .ipynb           3. ดาวน์โหลด .ipynb จาก Drive
-4. เปิด Google Form                   4. วาง path ใน grading notebook
-5. กรอกข้อมูล + อัปโหลดไฟล์             5. Run ตรวจ → ผล append CSV
-6. กดส่ง ✅                           6. ตรวจคนต่อไป
+Students                               Instructor
+──────────                             ──────────
+1. Complete homework in Colab          1. Create Google Form (one-time setup)
+2. Run ✅ validation checks             2. Open linked Google Sheets (auto)
+3. File → Download → .ipynb            3. Download .ipynb files from Drive
+4. Open Google Form                    4. Paste file path in grading notebook
+5. Fill in info + upload files         5. Run grading → append to CSV
+6. Submit ✅                            6. Continue grading next student
 ```
 
-### ทำไมใช้ Google Form?
+### Why Google Form?
 
-| เหตุผล                   | รายละเอียด                           |
-| ----------------------- | ----------------------------------- |
-| **นักศึกษาไม่ต้องมี GitHub** | Download .ipynb → Upload Form เท่านั้น |
-| **1 link แชร์ทุกคน**      | ส่ง link เดียวผ่าน LINE/Classroom      |
-| **Auto Spreadsheet**    | ข้อมูลนักศึกษาเข้า Google Sheets ทันที     |
-| **ไฟล์เก็บใน Drive**      | อัปโหลดแล้วไม่หาย, ดาวน์โหลดภายหลังได้    |
+| Reason | Details |
+| ------ | ------- |
+| **Students do not need GitHub** | Just download `.ipynb` and upload via form |
+| **One link for everyone** | Share a single link via LINE/Classroom |
+| **Auto spreadsheet** | Student metadata goes into Google Sheets instantly |
+| **Files stored in Drive** | Uploaded files are safe and easy to download later |
 
-### 📝 Google Form — โครงสร้าง
+### 📝 Google Form structure
 
-สร้าง Google Form 1 ฟอร์มต่อ 1 Day เพื่อความชัดเจน:
+Create one Google Form per day for clarity.
 
-#### Form: "ส่งการบ้าน Day X — Agentic RAG Workshop"
+#### Form: "Day X Homework Submission — Agentic RAG Workshop"
 
-| #   | ชื่อ Field                        | ประเภท      | Required | หมายเหตุ                                 |
-| --- | ------------------------------- | ----------- | :------: | --------------------------------------- |
-| 1   | **ชื่อ-นามสกุล**                   | Short text  |    ✅     | Validation: ≥ 4 ตัวอักษร                  |
-| 2   | **รหัสนักศึกษา**                   | Short text  |    ✅     | Validation: regex `^\d{10}$` (10 หลัก)   |
-| 3   | **เบอร์โทรศัพท์**                  | Short text  |    ✅     | Validation: regex `^0\d{8,9}$`          |
-| 4   | **LINE ID**                     | Short text  |    ❌     |                                         |
-| 5   | **Email**                       | Short text  |    ✅     | auto-collect จาก Google Account         |
-| 6   | **ไฟล์เนื้อหาและแบบฝึกหัด (.ipynb)** | File upload |    ✅     | ไฟล์ workshop ที่ทำแบบฝึกหัดในคาบ, Max: 20 MB |
-| 7   | **ไฟล์การบ้าน (.ipynb)**          | File upload |    ✅     | ไฟล์ homework, Max: 10 MB                |
-| 8   | **ปัญหาที่พบ**                     | Paragraph   |    ❌     | ให้นักศึกษาเล่าถ้าติดตรงไหน                   |
+| #   | Field Name | Type | Required | Notes |
+| --- | ---------- | ---- | :------: | ----- |
+| 1   | **Full Name** | Short text | ✅ | Validation: at least 4 characters |
+| 2   | **Student ID** | Short text | ✅ | Validation: regex `^\d{10}$` (10 digits) |
+| 3   | **Phone Number** | Short text | ✅ | Validation: regex `^0\d{8,9}$` |
+| 4   | **LINE ID** | Short text | ❌ | Optional |
+| 5   | **Email** | Short text | ✅ | Auto-collected from Google Account |
+| 6   | **Lesson + Exercise file (.ipynb)** | File upload | ✅ | In-class workshop file, max 20 MB |
+| 7   | **Homework file (.ipynb)** | File upload | ✅ | Homework file, max 10 MB |
+| 8   | **Issues encountered** | Paragraph | ❌ | Student explains blockers/problems |
 
-#### ตั้งค่า Google Form
+#### Google Form settings
 
-| การตั้งค่า                 | ค่า                                                 |
-| ----------------------- | -------------------------------------------------- |
-| Collect emails          | ✅ Verified                                         |
-| Limit to 1 response     | ✅ (แก้ไขหลังส่งได้)                                    |
-| File upload destination | สร้าง folder ใน Drive: `Workshop_Submissions/DayX/` |
-| Confirmation message    | `✅ ส่งเรียบร้อย! ผลตรวจจะแจ้งภายใน 1 สัปดาห์`            |
+| Setting | Value |
+| ------- | ----- |
+| Collect emails | ✅ Verified |
+| Limit to 1 response | ✅ (editable after submit) |
+| File upload destination | Drive folder: `Workshop_Submissions/DayX/` |
+| Confirmation message | `✅ Submitted successfully! Results will be shared within 1 week.` |
 
-#### 🔗 Google Form Links
+#### 🔗 Google Form links
 
-| Day   | Link                                                                             |
-| ----- | -------------------------------------------------------------------------------- |
-| Day 1 | [ส่งการบ้าน Day 1: Data Engineering](https://forms.gle/R7EXvPvUfZ286CVh8)          |
-| Day 2 | [ส่งการบ้าน Day 2: Building Agents](https://forms.gle/xTQ5eVNKa4fcQVKb8)           |
-| Day 3 | [ส่งการบ้าน Day 3: Evaluation & Optimization](https://forms.gle/yLVHh4YVVt3miogm8) |
+| Day   | Link |
+| ----- | ---- |
+| Day 1 | [Submit Day 1: Data Engineering](https://forms.gle/R7EXvPvUfZ286CVh8) |
+| Day 2 | [Submit Day 2: Building Agents](https://forms.gle/xTQ5eVNKa4fcQVKb8) |
+| Day 3 | [Submit Day 3: Evaluation & Optimization](https://forms.gle/yLVHh4YVVt3miogm8) |
 
 ---
 
-## ✅ วิธีตรวจการบ้าน
+## ✅ Homework Grading
 
-### ขั้นตอน
+### Steps
 
 ```
-1. เปิด Google Sheets (linked จาก Form) → ดาวน์โหลด .ipynb จาก Drive
-2. อัปโหลดไฟล์ทั้งหมดเข้า Colab (หรือ Google Drive → mount)
-3. เปิด dayX_grading.ipynb ใน Colab
-4. Run "Setup" ครั้งเดียว (ติดตั้ง + API Key)
-5. Run "ฟังก์ชันตรวจ" ครั้งเดียว
-6. วาง path ของไฟล์ .ipynb → Run ตรวจ
-7. ผลจะ append เข้า CSV/JSON อัตโนมัติ
-8. เปลี่ยน path → ตรวจคนถัดไป
+1. Open Google Sheets (linked from the Form) → download .ipynb files from Drive
+2. Upload all files to Colab (or mount Google Drive)
+3. Open dayX_grading.ipynb in Colab
+4. Run "Setup" once (install + API key)
+5. Run the grading function once
+6. Paste .ipynb file path → run grading
+7. Results append to CSV/JSON automatically
+8. Change path → grade next student
 ```
 
-### ระบบตรวจอัตโนมัติ
+### Automatic grading system
 
-| Feature             | รายละเอียด                                 |
-| ------------------- | ----------------------------------------- |
-| **AI Grading**      | Gemini 2.5 Pro ตรวจ + ให้ feedback ภาษาไทย |
-| **Anti-cheat**      | เปรียบเทียบข้อมูลกับเฉลยจากรหัส นศ.             |
-| **Duplicate check** | ตรวจซ้ำ + ถามก่อน overwrite                  |
-| **Export**          | CSV + JSON สำหรับนำเข้าระบบเกรด               |
+| Feature | Details |
+| ------- | ------- |
+| **AI Grading** | Gemini 2.5 Pro grades and provides feedback in Thai |
+| **Anti-cheat** | Compare with student-ID-based personalized answer key |
+| **Duplicate check** | Detect duplicate submissions and ask before overwrite |
+| **Export** | CSV + JSON for importing into grading systems |
 
-### เกณฑ์คะแนน (ทุก Day = 10 คะแนน)
+### Scoring rubric (each day = 10 points)
 
 <details>
 <summary><strong>Day 1: Data Engineering Pipeline</strong></summary>
 
-| ขั้นตอน              | คะแนน |
-| ------------------ | :---: |
-| Duplicates         |   2   |
-| Chunking           |   3   |
-| Embedding + Search |   3   |
-| วิเคราะห์ผล          |   2   |
+| Task | Points |
+| ---- | :----: |
+| Duplicates | 2 |
+| Chunking | 3 |
+| Embedding + Search | 3 |
+| Analysis | 2 |
 
 </details>
 
 <details>
 <summary><strong>Day 2: Building Agents</strong></summary>
 
-| ขั้นตอน               | คะแนน |
-| ------------------- | :---: |
-| Agent + Custom Tool |   3   |
-| RAG Agent           |   3   |
-| Workflow Agent      |   2   |
-| อธิบายผลลัพธ์          |   2   |
+| Task | Points |
+| ---- | :----: |
+| Agent + Custom Tool | 3 |
+| RAG Agent | 3 |
+| Workflow Agent | 2 |
+| Explain the results | 2 |
 
 </details>
 
 <details>
 <summary><strong>Day 3: Evaluation & Optimization</strong></summary>
 
-| ขั้นตอน                  | คะแนน |
-| ---------------------- | :---: |
-| RAG Pipeline           |   3   |
-| วัดคุณภาพ (LLM-as-Judge) |  2.5  |
-| ปรับปรุง (Before/After)  |  2.5  |
-| Agent + Test           |   2   |
+| Task | Points |
+| ---- | :----: |
+| RAG Pipeline | 3 |
+| Quality Evaluation (LLM-as-Judge) | 2.5 |
+| Improvement (Before/After) | 2.5 |
+| Agent + Test | 2 |
 
 </details>
 
-### ไฟล์ output
+### Output files
 
-- `dayX_scores.csv` — ตารางคะแนน (import Excel/Google Sheets ได้)
-- `dayX_scores.json` — รายละเอียด feedback ต่อคน
+- `dayX_scores.csv` — Score table (can be imported to Excel/Google Sheets)
+- `dayX_scores.json` — Per-student detailed feedback
 
 ---
 
-## 🏆 เกณฑ์ให้คะแนนรวม (3 ด้าน)
+## 🏆 Overall Evaluation Framework (3 Dimensions)
 
-คะแนนสุดท้ายวัดจาก **3 ด้าน** ด้านละ 10 คะแนน × 3 วัน = **90 คะแนนรวม**
+The final score uses **3 dimensions**, each worth 10 points/day × 3 days = **90 total points**.
 
-### 🤝 Responsibility (ความรับผิดชอบ) — 10 คะแนน/Day
+### 🤝 Responsibility — 10 points/day
 
-| เกณฑ์               | คะแนน | วัดจาก                        |
-| ------------------ | :---: | ---------------------------- |
-| ส่งตรงเวลา          |   3   | timestamp ใน Google Form     |
-| กรอกข้อมูลครบถ้วน     |   2   | ชื่อ, รหัส, เบอร์ ครบ            |
-| ส่งครบทุก Day        |   3   | ส่ง Day 1 + 2 + 3             |
-| Run ✅ ตรวจสอบก่อนส่ง |   2   | มี output จาก validation cell |
+| Criteria | Points | Evidence |
+| -------- | :----: | -------- |
+| On-time submission | 3 | Google Form timestamp |
+| Complete student information | 2 | Name, student ID, phone number |
+| Submit all 3 days | 3 | Day 1 + Day 2 + Day 3 present |
+| Run ✅ validation before submit | 2 | Validation cell output exists |
 
-### 💪 Determination (ความมุ่งมั่น) — 10 คะแนน/Day
+### 💪 Determination — 10 points/day
 
-| เกณฑ์                  | คะแนน | วัดจาก                        |
-| --------------------- | :---: | ---------------------------- |
-| ทำแบบฝึกหัดครบทุกข้อ       |   3   | code cells มี output          |
-| ลองปรับ parameter เอง  |   3   | เปลี่ยนค่า ≥ 2 แบบ              |
-| อธิบาย/วิเคราะห์ด้วยตัวเอง |   2   | มี comment อธิบายเหตุผล         |
-| แก้ปัญหาที่เจอ            |   2   | มี debugging / error handling |
+| Criteria | Points | Evidence |
+| -------- | :----: | -------- |
+| Complete all exercises | 3 | Code cells produce outputs |
+| Experiment with parameters | 3 | At least 2 meaningful parameter changes |
+| Explain and analyze independently | 2 | Comments explain reasoning |
+| Resolve encountered issues | 2 | Debugging / error handling shown |
 
-### 💻 Technical (ทักษะเทคนิค) — 10 คะแนน/Day
+### 💻 Technical Skills — 10 points/day
 
-| เกณฑ์                   | คะแนน | วัดจาก                         |
-| ---------------------- | :---: | ----------------------------- |
-| Code ทำงานได้            |   3   | ไม่มี error/traceback           |
-| ผลลัพธ์ถูกต้อง             |   3   | ตรงกับข้อมูลเฉพาะตัว (anti-cheat) |
-| คุณภาพ code             |   2   | อ่านง่าย, มี comment             |
-| ไม่ copy / ไม่ใช้ AI ทำแทน |   2   | AI suspected check            |
+| Criteria | Points | Evidence |
+| -------- | :----: | -------- |
+| Code runs correctly | 3 | No errors/tracebacks |
+| Correct output | 3 | Matches personalized anti-cheat data |
+| Code quality | 2 | Readable with useful comments |
+| No copy/paste / no full AI replacement | 2 | AI-suspected behavior checks |
 
-### 📊 ตารางสรุป
+### 📊 Summary table
 
-| ด้าน              |  Day 1  |  Day 2  |  Day 3  |   รวม   |
-| ---------------- | :-----: | :-----: | :-----: | :-----: |
-| 🤝 Responsibility |   /10   |   /10   |   /10   |   /30   |
-| 💪 Determination  |   /10   |   /10   |   /10   |   /30   |
-| 💻 Technical      |   /10   |   /10   |   /10   |   /30   |
-| **รวมต่อ Day**    | **/30** | **/30** | **/30** | **/90** |
+| Dimension | Day 1 | Day 2 | Day 3 | Total |
+| --------- | :---: | :---: | :---: | :---: |
+| 🤝 Responsibility | /10 | /10 | /10 | /30 |
+| 💪 Determination | /10 | /10 | /10 | /30 |
+| 💻 Technical | /10 | /10 | /10 | /30 |
+| **Per-day subtotal** | **/30** | **/30** | **/30** | **/90** |
 
-> ใช้ `final_grading.ipynb` เพื่อรวมคะแนน 3 ด้านจากทุก Day → export เป็น CSV สุดท้าย
+> Use `final_grading.ipynb` to aggregate all three dimensions across all days, then export final CSV.
 
 ---
 
 ## 🐛 Known Issues & Fixes (Colab)
 
-ปัญหาที่พบและแก้ไขแล้ว เมื่อ run บน Google Colab:
+Issues found and fixed while running on Google Colab:
 
-|         Issue          | ปัญหา                                          | แก้ไข                               | Notebook |
-| :--------------------: | --------------------------------------------- | ---------------------------------- | -------- |
-| [#19](../../issues/19) | Thai font ใน matplotlib แสดงเป็น □□□           | ใช้ `fonts-thai-tlwg` + `addfont()` | Day 1    |
-| [#21](../../issues/21) | ASCII diagram ไม่ตรงเพราะ Thai char width      | เปลี่ยนเป็น markdown table            | Day 1, 2 |
-| [#26](../../issues/26) | `InMemoryRunner` ไม่รับ `session_service` param | ใช้ `runner.session_service`        | Day 2, 3 |
-| [#17](../../issues/17) | `resp.text.strip()` → NoneType error          | เพิ่ม None check                     | Day 2, 3 |
-| [#30](../../issues/30) | Similarity matrix text ไม่ตรง                  | เปลี่ยนเป็น matplotlib heatmap        | Day 1    |
+| Issue | Problem | Fix | Notebook |
+| :---: | ------- | --- | -------- |
+| [#19](../../issues/19) | Thai fonts in matplotlib rendered as □□□ | Install `fonts-thai-tlwg` + use `addfont()` | Day 1 |
+| [#21](../../issues/21) | ASCII diagrams were misaligned due to Thai character width | Replaced with markdown tables | Day 1, 2 |
+| [#26](../../issues/26) | `InMemoryRunner` does not accept `session_service` parameter | Use `runner.session_service` | Day 2, 3 |
+| [#17](../../issues/17) | `resp.text.strip()` raised NoneType error | Add `None` check | Day 2, 3 |
+| [#30](../../issues/30) | Similarity matrix text layout was misaligned | Replaced with matplotlib heatmap | Day 1 |
 
-> ⚠️ **หมายเหตุ**: Notebooks ทั้งหมดถูกออกแบบสำหรับ **Google Colab** — หาก run บนเครื่อง local อาจต้องปรับ path และ dependencies เพิ่มเติม
+> ⚠️ **Note**: All notebooks are designed for **Google Colab**. If you run locally, you may need to adjust paths and install extra dependencies.
 
 ## 🛠️ Tech Stack
 
-| เครื่องมือ                                                                        | ใช้ทำอะไร                   |
-| ------------------------------------------------------------------------------ | ------------------------- |
-| [Google ADK](https://google.github.io/adk-docs/)                               | สร้าง AI Agent             |
-| [Gemini API](https://ai.google.dev/)                                           | LLM (2.5 Flash / 2.5 Pro) |
-| [Qdrant](https://qdrant.tech/)                                                 | Vector Database           |
-| [multilingual-e5-large](https://huggingface.co/intfloat/multilingual-e5-large) | Text Embedding (รองรับไทย) |
-| [RAGAS](https://ragas.io/)                                                     | RAG Evaluation Framework  |
-| [PyThaiNLP](https://pythainlp.github.io/)                                      | Thai NLP Toolkit          |
-| [Google Colab](https://colab.research.google.com/)                             | Runtime Environment       |
+| Tool | Purpose |
+| ---- | ------- |
+| [Google ADK](https://google.github.io/adk-docs/) | Build AI Agents |
+| [Gemini API](https://ai.google.dev/) | LLM (2.5 Flash / 2.5 Pro) |
+| [Qdrant](https://qdrant.tech/) | Vector Database |
+| [multilingual-e5-large](https://huggingface.co/intfloat/multilingual-e5-large) | Text Embedding (Thai-capable) |
+| [RAGAS](https://ragas.io/) | RAG Evaluation Framework |
+| [PyThaiNLP](https://pythainlp.github.io/) | Thai NLP Toolkit |
+| [Google Colab](https://colab.research.google.com/) | Runtime Environment |
 
 ---
 
-## 👤 ผู้จัดทำ
+## 👤 Author
 
-**ปริพล ทู้ไพเราะห์ (Paripol Toopiroh)**
+**Paripol Toopiroh**
 Chief Executive Officer — [Mega Wiz](https://megawiz.co)
-🎓 สาขาวิศวกรรมสารสนเทศ รุ่น 1 — คณะวิศวกรรมศาสตร์ สถาบันพระจอมเกล้าเจ้าคุณทหารลาดกระบัง (KMITL)
+🎓 Information Engineering (Class 1), Faculty of Engineering, King Mongkut's Institute of Technology Ladkrabang (KMITL)
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/paripol-toopiroh-61273a19b/)
 [![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=flat&logo=facebook&logoColor=white)](https://www.facebook.com/paripol.toopiroh)
 
-### 🛠️ Tools ที่ใช้สร้าง
+### 🛠️ Creation Tools
 
-| Tool         | รายละเอียด                              |
-| ------------ | -------------------------------------- |
-| **IDE**      | [Antigravity](https://antigravity.dev) |
-| **AI Model** | Claude Opus 4.6 (Thinking)             |
+| Tool | Description |
+| ---- | ----------- |
+| **IDE** | [Antigravity](https://antigravity.dev) |
+| **AI Model** | Claude Opus 4.6 (Thinking) |
 
 ---
 
 ## 🤝 Contributing
 
-ยินดีรับ feedback และ contribution จากทุกคนครับ!
+Feedback and contributions are very welcome.
 
-- 💬 **ข้อเสนอแนะ** → เปิด [Issue](../../issues) ได้เลย
-- 🐛 **พบ Bug** → เปิด [Issue](../../issues) พร้อมระบุขั้นตอนการทำซ้ำ
-- 🔀 **Pull Request** → Fork → แก้ไข → ส่ง PR มาได้เลยครับ
+- 💬 **Suggestions** → Open an [Issue](../../issues)
+- 🐛 **Bug reports** → Open an [Issue](../../issues) with reproduction steps
+- 🔀 **Pull Requests** → Fork → Edit → Submit PR
 
-> ทุก contribution จะถูกเผยแพร่ภายใต้ license เดียวกัน (CC BY-NC-SA 4.0)
+> All contributions are shared under the same license (CC BY-NC-SA 4.0).
 
 ---
 
@@ -394,14 +386,14 @@ Chief Executive Officer — [Mega Wiz](https://megawiz.co)
 
 [![CC BY-NC-SA 4.0](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
-ผลงานนี้เผยแพร่ภายใต้สัญญาอนุญาต [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+This work is licensed under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-- ✅ ใช้เรียน ใช้สอนได้ฟรี
-- ✅ ดัดแปลง ต่อยอดได้
-- ✅ ต้องให้เครดิตผู้สร้าง
-- ❌ ห้ามนำไปขายหรือใช้เชิงพาณิชย์
+- ✅ Free for learning and teaching
+- ✅ You can adapt and build upon it
+- ✅ Attribution is required
+- ❌ Commercial use is not allowed
 
-ดูรายละเอียดเพิ่มเติมที่ [LICENSE](LICENSE)
+See [LICENSE](LICENSE) for full details.
 
 ---
 
