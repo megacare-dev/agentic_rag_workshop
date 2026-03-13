@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.1.3] - 2026-03-13
+
+### 🐛 Fixed
+
+**Day 2: Building Agents**
+- `day2_homework.ipynb` — `chat_with_agent()` ส่ง `session_service` เป็น constructor arg ให้ `InMemoryRunner` ซึ่งไม่รองรับ → ใช้ `runner.session_service` pattern (#46)
+
+**Day 3: Evaluation**
+- `day3_evaluation.ipynb` — RAGAS evaluation cell มีโค้ดหายไป (embedding setup, Dataset, evaluate() call, try block) ทำให้เกิด parse error (#45)
+
+---
+
 ## [1.1.2] - 2026-03-07
 
 ### 🐛 Fixed
