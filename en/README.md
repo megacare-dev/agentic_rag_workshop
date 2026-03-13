@@ -15,20 +15,23 @@ The English version of this workshop is currently being developed. Contributions
 
 ### Files to Translate
 
+> Note: The listed notebooks and changelog have now been copied into `en/` as translation templates.
+
+
 | File | Thai Source | English Target | Status |
 |------|-----------|----------------|--------|
 | README.md | `th/README.md` | `en/README.md` | 🚧 In Progress |
-| Day 1 Notebook | `th/day1/day1_data_engineering.ipynb` | `en/day1/day1_data_engineering.ipynb` | ❌ Not Started |
-| Day 1 Homework | `th/day1/day1_homework.ipynb` | `en/day1/day1_homework.ipynb` | ❌ Not Started |
-| Day 1 Grading | `th/day1/day1_grading.ipynb` | `en/day1/day1_grading.ipynb` | ❌ Not Started |
-| Day 2 Notebook | `th/day2/day2_building_agents.ipynb` | `en/day2/day2_building_agents.ipynb` | ❌ Not Started |
-| Day 2 Homework | `th/day2/day2_homework.ipynb` | `en/day2/day2_homework.ipynb` | ❌ Not Started |
-| Day 2 Grading | `th/day2/day2_grading.ipynb` | `en/day2/day2_grading.ipynb` | ❌ Not Started |
-| Day 3 Notebook | `th/day3/day3_evaluation.ipynb` | `en/day3/day3_evaluation.ipynb` | ❌ Not Started |
-| Day 3 Homework | `th/day3/day3_homework.ipynb` | `en/day3/day3_homework.ipynb` | ❌ Not Started |
-| Day 3 Grading | `th/day3/day3_grading.ipynb` | `en/day3/day3_grading.ipynb` | ❌ Not Started |
-| CHANGELOG | `th/CHANGELOG.md` | `en/CHANGELOG.md` | ❌ Not Started |
-| Final Grading | `th/final_grading.ipynb` | `en/final_grading.ipynb` | ❌ Not Started |
+| Day 1 Notebook | `th/day1/day1_data_engineering.ipynb` | `en/day1/day1_data_engineering.ipynb` | 🟡 Copied (translation pending) |
+| Day 1 Homework | `th/day1/day1_homework.ipynb` | `en/day1/day1_homework.ipynb` | 🟡 Copied (translation pending) |
+| Day 1 Grading | `th/day1/day1_grading.ipynb` | `en/day1/day1_grading.ipynb` | 🟡 Copied (translation pending) |
+| Day 2 Notebook | `th/day2/day2_building_agents.ipynb` | `en/day2/day2_building_agents.ipynb` | 🟡 Copied (translation pending) |
+| Day 2 Homework | `th/day2/day2_homework.ipynb` | `en/day2/day2_homework.ipynb` | 🟡 Copied (translation pending) |
+| Day 2 Grading | `th/day2/day2_grading.ipynb` | `en/day2/day2_grading.ipynb` | 🟡 Copied (translation pending) |
+| Day 3 Notebook | `th/day3/day3_evaluation.ipynb` | `en/day3/day3_evaluation.ipynb` | 🟡 Copied (translation pending) |
+| Day 3 Homework | `th/day3/day3_homework.ipynb` | `en/day3/day3_homework.ipynb` | 🟡 Copied (translation pending) |
+| Day 3 Grading | `th/day3/day3_grading.ipynb` | `en/day3/day3_grading.ipynb` | 🟡 Copied (translation pending) |
+| CHANGELOG | `th/CHANGELOG.md` | `en/CHANGELOG.md` | 🟡 Copied (translation pending) |
+| Final Grading | `th/final_grading.ipynb` | `en/final_grading.ipynb` | 🟡 Copied (translation pending) |
 
 ---
 
