@@ -1,4 +1,4 @@
-````md
+
 # 🤖 Agentic RAG Workshop: From Zero to Hero
 
 > Build RAG + AI Agents from scratch with Google ADK & Gemini — with Thai language support
@@ -14,7 +14,7 @@
 - [Teaching Approach](#-teaching-approach)
 - [Homework Submission](#-homework-submission)
 - [Homework Grading](#-homework-grading)
-- [Tech Stack](#-tech-stack)
+- [Tech Stack](#tech-stack)
 
 ---
 
@@ -352,7 +352,7 @@ Issues found and fixed when running on Google Colab:
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Tool                                                                           | Purpose                        |
 | ------------------------------------------------------------------------------ | ------------------------------ |
@@ -412,13 +412,3 @@ See [LICENSE](LICENSE) for more details.
 ---
 
 > *"The best way to learn AI is to build with AI."*
-
-```
-
-A couple of wording upgrades I already made:
-- “Google Form” → sometimes “Google Forms” where it sounds more natural in English
-- “automated homework grading” instead of “automatic”
-- cleaner headings and a more GitHub-native tone
-
-Paste this directly into `README.md`.
-```
