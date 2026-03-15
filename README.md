@@ -9,7 +9,7 @@
 | Language | Link |
 |----------|------|
 | 🇹🇭 **ภาษาไทย** (Thai) | [📖 เข้าสู่เนื้อหาภาษาไทย](th/README.md) |
-| 🇬🇧 **English** | [📖 Go to English version](en/README.md) |
+| 🇬🇧 **English** | [📖 Go to English version](en/README.md) — v1.2.0 ✅ |
 
 ---
 
@@ -63,9 +63,13 @@ agentic_rag_workshop/
 │   ├── day3/                  # Evaluation & Optimization
 │   ├── 4hr/                   # 4-hour condensed variant
 │   └── final_grading.ipynb
-├── en/                        # 🇬🇧 English version
+├── en/                        # 🇬🇧 English version (v1.2.0)
 │   ├── README.md
-│   └── ... (coming soon)
+│   ├── CHANGELOG.md
+│   ├── day1/                  # Data Engineering Pipeline
+│   ├── day2/                  # Building Agents with Google ADK
+│   ├── day3/                  # Evaluation & Optimization
+│   └── 4hr/                   # 4-hour condensed variant
 └── docs/                      # Landing page (GitHub Pages)
 ```
 
@@ -79,6 +83,12 @@ Chief Executive Officer — [Mega Wiz](https://megawiz.co)
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/paripol-toopiroh-61273a19b/)
 [![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=flat&logo=facebook&logoColor=white)](https://www.facebook.com/paripol.toopiroh)
+
+### 👥 Contributors
+
+| Contributor | Role | PRs |
+|:------------|:-----|:----|
+| [@Khantdotcom](https://github.com/Khantdotcom) | 🇬🇧 English Translation — Translated Thai notebooks to English, enabling the international workshop version | [#48](../../pull/48), [#49](../../pull/49), [#50](../../pull/50), [#51](../../pull/51), [#52](../../pull/52) |
 
 ## 🤝 Contributing
 
