@@ -18,6 +18,30 @@
 
 ---
 
+## 🌍 For International Students
+
+This workshop teaches how to build RAG systems for **Thai language data** using Google ADK & Gemini.
+
+**You don't need to read Thai!** Here's what to expect:
+- All **instructions, comments, and print messages** are in English
+- **Sample data** (documents, queries) is in Thai — this is the data your RAG pipeline processes
+- Every Thai string has an English translation as an inline comment: `# "translation"`
+- Case study data includes `# [EN]` block translations explaining the full context
+- Each notebook starts with a **Thai language explainer** describing key differences from English
+
+**Key things to know about Thai:**
+
+| Feature | English | Thai |
+|---------|---------|------|
+| Word separation | Spaces between words | No spaces — continuous script |
+| Tokenization | Split on spaces ✅ | Requires [PyThaiNLP](https://pythainlp.github.io/) |
+| Capitalization | Yes (A-Z, a-z) | No — single case only |
+| BM25 keyword search | Works out of the box | Needs special tokenizer |
+| Embedding model | English-only works | Must use multilingual (e.g., `multilingual-e5-large`) |
+
+
+---
+
 ## 🎯 Overview
 
 A 3-day workshop for undergraduate students on building **Retrieval-Augmented Generation (RAG)** and **AI Agents** end-to-end.
