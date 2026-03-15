@@ -7,6 +7,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.2.0] - 2026-03-15
+
+### 🌍 English Version — International Workshop Ready
+
+The `en/` notebooks are now fully optimized for **international students** learning Thai Agentic RAG.
+
+### ✨ Added
+
+**For International Students**
+- README: "For International Students" section with Thai vs English comparison table (#60)
+- Thai language explainer cell at the top of every notebook (#54)
+- Sample data summary table (5 case studies with topics & key points) (#55)
+- Thai Quick Reference glossary — 15 common Thai words with pronunciation (#60)
+- `# [EN]` paragraph-level English translations for all Thai case study data (#55)
+- Inline `# "translation"` annotations for every Thai string literal (#54)
+
+**Teaching Enhancements**
+- Day 1: Explanation of why Hybrid Search matters more for Thai (alpha=0.7+) (#60)
+- Day 2: Cross-language retrieval note — EN query → TH data via multilingual embeddings (#60)
+- Day 3: Thai RAGAS scoring note — expected score differences vs English benchmarks (#60)
+- Issue #58: Docling OCR downloads wrong language models (Chinese instead of Thai)
+
+### 🔄 Changed
+
+- All `print()` messages changed to English (from PR #52 by @Khantdotcom) (#57)
+- All comments and docstrings in English (#54)
+- All markdown cells in English (#54)
+- Sample data (string literals) restored to Thai with English annotations (#54)
+
+### 👥 Contributors
+
+- [@Khantdotcom](https://github.com/Khantdotcom) — English translation of Thai notebooks (PRs #48, #49, #50, #51, #52)
+
+---
+
 ## [1.1.3] - 2026-03-13
 
 ### 🐛 Fixed
