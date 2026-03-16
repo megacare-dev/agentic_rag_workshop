@@ -1,0 +1,3 @@
+# CODEOWNERS — MegaWiz-Dev-Team / agentic_rag_workshop
+# ทุกไฟล์ต้องให้ @megacare-dev approve ก่อน merge เข้า main
+* @megacare-dev
