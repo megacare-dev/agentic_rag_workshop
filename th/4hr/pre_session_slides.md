@@ -20,19 +20,36 @@
 ---
 
 ## Slide 3: Timeline วัน Workshop
-| Part     |     เวลา     | เนื้อหา                                  |
-| -------- | :----------: | -------------------------------------- |
-| 📢 Part 1 | 1 ชม. 20 นาที | Data Pipeline: Chunk → Embed → Qdrant  |
-| ☕ พัก     |    10 นาที    |                                        |
-| 📢 Part 2 | 1 ชม. 30 นาที | Agent → Tool → RAG Agent → Agentic RAG |
-| 🧪 Part 3 |    1 ชม.     | แบบฝึกหัด (10 คะแนน) + Q&A               |
+| เวลา | ช่วง | กิจกรรม |
+|:----:|------|--------|
+| 13:00-13:15 | 🎤 Opening | แนะนำตัว, Ground Rules, ตรวจ API Key |
+| 13:15-14:20 | 📢 Part 1 | Data Pipeline: Chunk → Embed → Qdrant |
+| 14:20-14:35 | ☕ พัก | 15 นาที |
+| 14:35-15:50 | 📢 Part 2 | Agent → Tool → RAG Agent → Agentic RAG |
+| 15:50-16:00 | 🔧 Buffer | ดูปัญหา Rate Limit, ช่วย troubleshoot |
+| 16:00-16:50 | 🧪 Part 3 | แบบฝึกหัด (10 คะแนน) |
+| 16:50-17:00 | 🎬 Closing | สรุป, วิธีส่งงาน, Certificate, Q&A |
 
 ---
 
-## Slide 4: 🌐 ลงทะเบียน — myhero.megawiz.co.th
+## Slide 3.5: 🌐 Ground Rules — สอน Online
+
+### การสื่อสาร
+- 💬 **ถามผ่าน Chat** ได้ตลอดเวลา — TA จะตอบ
+- 🎤 **เปิดไมค์ถามได้** ช่วง Q&A และช่วงแบบฝึกหัด
+- 📷 **เปิดกล้องไม่บังคับ** แต่ชอบเห็นหน้าทุกคน 😊
+
+### Troubleshooting
+- ⚠️ **Error 429 (Rate Limit)** — รอ 1-2 นาที แล้ว Run ใหม่ (40 คนรันพร้อมกัน อาจเกิดบ่อย)
+- 🔄 **Colab ค้าง** — Runtime → Restart session → Run ใหม่ตั้งแต่ต้น
+- 🆘 **ติดปัญหา** — อย่าเงียบ! พิมพ์ถามใน Chat ทันที
+
+---
+
+## Slide 4: 🌐 ลงทะเบียน — hero.megawiz.co.th
 
 ### ขั้นตอนลงทะเบียน
-1. เข้า **[myhero.megawiz.co.th/student-portal](https://myhero.megawiz.co.th/student-portal/)**
+1. เข้า **[hero.megawiz.co.th](https://hero.megawiz.co.th/)**
 2. กรอก **อีเมล** เพื่อรับ OTP
 3. ใส่รหัส OTP ที่ได้จากอีเมล → เข้าสู่ระบบ
 4. กรอก **ชื่อ-นามสกุล** และ **รหัสนักศึกษา**
@@ -48,10 +65,63 @@
 
 ## Slide 5: ⚠️ สิ่งที่ต้องเตรียมก่อนมาเรียน
 
-1. ✅ **ลงทะเบียน** ที่ [myhero.megawiz.co.th/student-portal](https://myhero.megawiz.co.th/student-portal/)
+1. ✅ **ลงทะเบียน** ที่ [hero.megawiz.co.th](https://hero.megawiz.co.th/)
 2. 🔑 **สร้าง Gemini API Key**
 3. 💻 เปิด **Google Colab** ได้
 4. 🧪 ทดสอบ API Key ล่วงหน้า
+
+---
+
+## Slide 5.5: 💻 Google Colab เบื้องต้น
+
+### Google Colab คืออะไร?
+- **Notebook** บน cloud — เขียน Python ได้เลย ไม่ต้องติดตั้งอะไร
+- ใช้ผ่าน **Browser** (Chrome แนะนำ)
+- ฟรี! มี GPU/TPU ให้ใช้
+
+### วิธีเปิดใช้งาน
+1. เข้า [colab.research.google.com](https://colab.research.google.com)
+2. Login ด้วย **Google Account**
+3. คลิก **"New Notebook"** เพื่อสร้าง notebook ใหม่
+
+### สิ่งที่ต้องรู้
+- **Cell** = กล่องเขียนโค้ด → กด `Shift + Enter` เพื่อ Run
+- **Code Cell** = เขียน Python / **Text Cell** = เขียนข้อความ
+- ▶️ **Run ทีละ cell** ตามลำดับ (บนลงล่าง)
+- ⚡ **Runtime → Restart session** ถ้า notebook ค้าง
+
+### Tips
+- 📁 ไฟล์จะอยู่ใน Google Drive (`Colab Notebooks/`)
+- 🔑 เก็บ API Key ใน **Secrets** (ไม่ใช่ใน code!)
+- 💾 Colab **Auto-save** ให้ — ไม่ต้องกด save เอง
+
+---
+
+## Slide 5.6: 📋 วิธี Copy Notebook ตัวอย่างไปไว้ใน Drive ตัวเอง
+
+### ทำไมต้อง Copy?
+- Notebook ที่อาจารย์แชร์เป็น **"View only"** — แก้ไขไม่ได้
+- ต้อง **Copy ไปไว้ใน Drive ตัวเอง** ก่อนจึงจะ Run / แก้โค้ดได้
+
+### ขั้นตอน
+1. เปิด Notebook ตัวอย่างจากลิ้งก์ที่ได้รับ
+2. คลิก **File → Save a copy in Drive** (บนเมนูบาร์)
+3. Colab จะสร้างสำเนาใน Google Drive อัตโนมัติ
+4. ไฟล์ใหม่จะมีชื่อ `Copy of ...` — เปลี่ยนชื่อได้ตามต้องการ
+5. เริ่ม Run / แก้โค้ดได้เลย ✅
+
+### ⚠️ สิ่งที่ต้องระวัง
+- **อย่าแก้ไขไฟล์ต้นฉบับ** — ถ้าไม่ Copy จะแก้ไม่ได้อยู่แล้ว
+- Copy จะอยู่ใน **My Drive → Colab Notebooks/**
+- ถ้า Copy หลายครั้ง จะมีหลายไฟล์ → ลบตัวที่ไม่ใช้ได้
+
+### 🔗 Notebook ที่ใช้ในวัน Workshop
+| Notebook | ลิ้งก์เปิด Colab |
+|:---------|:---------|
+| 📓 เนื้อหาหลัก | [agentic_rag_4hr.ipynb](https://colab.research.google.com/github/megacare-dev/agentic_rag_workshop/blob/main/th/4hr/agentic_rag_4hr.ipynb) |
+| 📝 แบบฝึกหัด | [agentic_rag_4hr_homework.ipynb](https://colab.research.google.com/github/megacare-dev/agentic_rag_workshop/blob/main/th/4hr/agentic_rag_4hr_homework.ipynb) |
+
+> 🎯 **Copy ก่อน → แก้ไขทีหลัง** — ทำแค่ครั้งเดียวต่อ Notebook
 
 ---
 
@@ -137,7 +207,7 @@ os.environ['GOOGLE_API_KEY'] = userdata.get('GOOGLE_API_KEY')
 from google import genai
 client = genai.Client(api_key=os.environ['GOOGLE_API_KEY'])
 resp = client.models.generate_content(
-    model='gemini-2.5-flash',
+    model='gemini-3.1-pro-preview',
     contents='สวัสดี ตอบสั้นๆ 1 ประโยค'
 )
 print(f'✅ สำเร็จ: {resp.text}')
@@ -149,7 +219,7 @@ print(f'✅ สำเร็จ: {resp.text}')
 
 ## Slide 11: 📋 Checklist ก่อนมาเรียน
 
-- [ ] ลงทะเบียนที่ [myhero.megawiz.co.th/student-portal](https://myhero.megawiz.co.th/student-portal/) แล้ว
+- [ ] ลงทะเบียนที่ [hero.megawiz.co.th](https://hero.megawiz.co.th/) แล้ว
 - [ ] มี Google Account
 - [ ] สร้าง Gemini API Key แล้ว
 - [ ] เก็บ Key ใน Colab Secrets แล้ว
@@ -163,7 +233,7 @@ print(f'✅ สำเร็จ: {resp.text}')
 
 หลังจบ workshop และส่งแบบฝึกหัดครบ:
 - ระบบตรวจให้คะแนนอัตโนมัติ (AI Grading)
-- รับ **Certificate** ผ่านระบบ [myhero.megawiz.co.th](https://myhero.megawiz.co.th/student-portal/)
+- รับ **Certificate** ผ่านระบบ [hero.megawiz.co.th](https://hero.megawiz.co.th/)
 - ดาวน์โหลดได้ทันที (PDF)
 
 ---

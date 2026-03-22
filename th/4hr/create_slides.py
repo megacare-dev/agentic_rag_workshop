@@ -498,7 +498,7 @@ def slide_10_test(prs):
         "from google import genai\n"
         "client = genai.Client(api_key=os.environ['GOOGLE_API_KEY'])\n"
         "resp = client.models.generate_content(\n"
-        "    model='gemini-2.5-flash',\n"
+        "    model='gemini-3.1-pro-preview',\n"
         "    contents='สวัสดี ตอบสั้นๆ 1 ประโยค'\n"
         ")\n"
         "print(f'✅ สำเร็จ: {resp.text}')"
